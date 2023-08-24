@@ -1,9 +1,9 @@
 
 <div class="box-border h-full  w-64 p-4 bg-gray-200 border border-gray-200 rounded-lg shadow ">
-    <h5 class="mb-2 text-2xl font-bold">
+    <h5 class="mb-2 text-2xl font-bold text-center">
         Type<span class="font-extrabold  text-blue-500 hover:text-blue-700 duration-700">Script</span> Book
     </h5>
-    <div class="border-2 border-blue-300 hover:border-blue-500 duration-500"></div>
+    <div class="border-2 border-blue-300 hover:border-blue-500 duration-500 rounded"></div>
     <div  *ngFor="let chap of Chapters; let i=index">
         <div
         class="p-2 mt-3 flex items-center rounded-md px-4 duration-500 cursor-pointer 
@@ -11,7 +11,7 @@
         (click)="clickDropdown($event,chap.id,i)"
          >
         <!-- <i class="bi bi-chat-left-text-fill"></i> -->
-        <div class="flex justify-between w-full items-center">
+        <div class="flex justify-between w-full items-center  hover:text-white">
           <span class="text-[15px] ml-4 text-dark-200 font-bold">{{chap.title}}</span>
           <span class="text-sm" [ngClass]="rotate[i]? 'rotate-180' : 'rotate-0'">
             <i class="bi bi-chevron-down"></i>
@@ -22,7 +22,7 @@
         class="text-left text-sm mt-1 w-4/5 mx-auto font-bold"
         *ngIf="submenu[i]" 
       >
-        <h1 class="cursor-pointer p-2 text rounded-md mt-1 text-gray-600" *ngFor="let sub of subChap; let j=index">
+        <h1 class="cursor-pointer p-2 ml-2 text rounded-md mt-1 text-gray-600 hover:text-gray-400" *ngFor="let sub of subChap; let j=index">
           {{sub.title}}
         </h1>
       </div>
