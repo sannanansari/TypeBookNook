@@ -18,6 +18,7 @@ export class SidebarComponent {
   submenu:  { [key: string]: boolean }  = {};
   subChap!: SubChapter[];
   index: number = 0;
+  id: string = '';
   constructor(private fetch: FetchService) { }
 
   ngOnInit() {
@@ -30,6 +31,13 @@ export class SidebarComponent {
 
 
   clickDropdown(event: any, id: string,index: number) {
+    if(id != this.id)
+    Object.keys(this.rotate).forEach((item: string) => {
+      this.rotate[item] = false
+      this.submenu[item] = false
+    }
+    )
+    this.id = id;
     this.submenu[index] = !this.submenu[index];
     this.rotate[index] = !this.rotate[index];
     this.index = index;
